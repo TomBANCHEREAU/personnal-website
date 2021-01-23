@@ -1,0 +1,36 @@
+{
+  "name": "personnal-website",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomBANCHEREAU/personnal-website.git"
+  },
+  "author": "Tom BANCHEREAU <tom.banchereau@viacesi.fr>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomBANCHEREAU/personnal-website/issues"
+  },
+  "homepage": "https://github.com/TomBANCHEREAU/personnal-website#readme",
+  "dependencies": {
+    "@nuxtjs/vuetify": "^1.11.3",
+    "nuxt": "^2.14.12",
+    "nuxt-i18n": "^6.18.0",
+    "vuetify": "^2.4.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vuetify": "^1.0.0-beta.7"
+  }
+}
