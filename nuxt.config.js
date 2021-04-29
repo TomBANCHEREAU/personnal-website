@@ -27,7 +27,36 @@ module.exports = {
         code: 'fr',
         iso: 'fr-FR',
         name: 'Français'
+      // },
+      // {
+      //   code: 'kr',
+      //   iso: 'kr-KR',
+      //   name: '한국'
       }
     ]
+  },
+  head: {
+    title: 'Tom BANCHEREAU',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      // { hid: 'application', name: 'application-name', content: 'Tom BANCHEREAU' },
+      // { hid: 'description', name: 'description', content: '' },
+      // { hid: 'robots', name: 'robots', content: 'noindex' },
+    ]
+  },
+  vuetify: {
+    theme: {
+      dark: false,
+      default: 'light',
+      themes: {
+        light: {
+          primary: '#FF9800'
+        },
+        dark: {
+          primary: '#70fc00'
+        }
+      }
+    }
   }
 }
