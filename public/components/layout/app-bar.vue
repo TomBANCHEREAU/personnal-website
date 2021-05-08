@@ -34,7 +34,10 @@
         absolute
       >
         <v-list>
-          <v-list-item v-for="name in appBarItems" :key="`navigation-drawer-item-${name}`" :to="localePath({name})">
+          <v-list-item
+            v-for="name in appBarItems" :key="`navigation-drawer-item-${name}`"
+          >
+            <!-- :to="localePath({name})" -->
             <v-list-item-title v-text="$t(name)" />
           </v-list-item>
         </v-list>
@@ -43,10 +46,10 @@
     <v-app-bar
       :color="$vuetify.theme.dark ? '' : 'white'"
       class="app-bar pa-0 ma-0 d-none d-md-block"
-      scroll-off-screen
       app
-      elevate-on-scroll
     >
+      <!-- scroll-off-screen
+      elevate-on-scroll -->
       <v-app-bar-title>
         Tom BANCHEREAU
       </v-app-bar-title>
@@ -70,14 +73,16 @@
         mdi-brightness-6
       </v-icon>
       <template v-slot:extension>
-        <v-tabs centered optional>
+        <v-tabs :value="selected" centered>
           <v-tab
             v-for="name in appBarItems"
             :key="`app-bar-item-${name}`"
             style="width:200px"
-            :to="localePath({name})"
+            @click="$vuetify.goTo(`#${name}`,{ container: '#scroll-target' })"
             v-text="$t(name)"
           />
+          <!-- :to="`#${name}`" -->
+          <!-- :to="localePath({name})" -->
         </v-tabs>
       </template>
     </v-app-bar>
@@ -85,6 +90,7 @@
 </template>
 
 <script>
+import eventBus from '~/assets/event-bus'
 export default {
   data: () => ({
     menu: false,
@@ -94,7 +100,8 @@ export default {
       'my-skills',
       'about',
       'contact'
-    ]
+    ],
+    selected: 0
   }),
   computed: {
     availableLocales () {
@@ -103,6 +110,11 @@ export default {
     currentLocale () {
       return this.$i18n.locales.find(i => i.code === this.$i18n.locale) || {}
     }
+  },
+  async mounted () {
+    eventBus.$on('scroll', (newSelected) => {
+      this.selected = newSelected
+    })
   }
 }
 </script>
