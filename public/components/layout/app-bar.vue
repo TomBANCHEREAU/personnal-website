@@ -114,7 +114,15 @@ export default {
   async mounted () {
     eventBus.$on('scroll', (newSelected) => {
       this.selected = newSelected
+      // history.pushState(
+      //   {},
+      //   null,
+      //   this.$route.path + '#' + encodeURIComponent(this.appBarItems[newSelected])
+      // )
     })
+  },
+  async beforeDestroy () {
+    eventBus.$off('scroll')
   }
 }
 </script>
